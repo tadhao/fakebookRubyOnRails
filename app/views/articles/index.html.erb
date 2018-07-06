@@ -1,4 +1,7 @@
-<h1>All articles created</h1>
+<h1>All articles</h1>
+
+<% if @articles then %>
+
 <p>
 	<td> <%= link_to 'Add new article', new_article_path %> </td>
 </p>
@@ -20,6 +23,12 @@
 <% end %>
 
 </table>
+
+<% else %>
+	<p>
+		<td> <%= link_to 'Add new article', new_article_path %> </td>
+	</p>
+<% end %>
 
 
 <p>
