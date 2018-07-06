@@ -1,0 +1,27 @@
+<h1>All articles created</h1>
+<p>
+	<td> <%= link_to 'Add new article', new_article_path %> </td>
+</p>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Descrition</th>
+	</tr>
+
+<% @articles.each do |data| %>
+	<tr>
+		<td> <%= data.title %> </td>
+		<td> <%= data.description %> </td>
+		<td> <%= link_to 'Edit', edit_article_path(data) %> </td>
+		<td> <%= link_to 'Show', article_path(data) %> </td>
+		<td> <%= link_to 'Delete', article_path(data), method: :delete, data: {confirm: "Are you sure?"} %> </td>
+	</tr>
+<% end %>
+
+</table>
+
+
+<p>
+	<%= link_to 'Back to Home', root_path %>
+</p>
