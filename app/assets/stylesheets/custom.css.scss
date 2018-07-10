@@ -1,0 +1,55 @@
+$navbar-default-bg: black;
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.custom_group{
+margin-left:20px;
+}
+
+.center{
+	
+	font-weight: bold;
+	font-size: 2.7em;
+}
+
+.btn_custom{
+	text-align: center;
+	width: 96px;
+	margin: 16px;
+	background-color: black;
+	border-color: black;
+}
+
+#logo{
+	float: left;
+	color: #fff;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color: #fff;
+	background-color: black;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	color: #d5cfcf;
+}
+
+.footer{
+	margin-top: 155px;
+	padding-top: 5px;
+	border-top: 1px solid #eaeaea;
+	color: #777;
+}
+
+.footer small{
+	float: left;
+}
+.footer ul{
+	float: right;
+	list-style: none;
+}

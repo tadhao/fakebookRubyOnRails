@@ -1,3 +1,16 @@
+<div class="jumbotron container">
 <h1> This is home page </h1>
+<ul>
+<% @users = User.all %>
+<% @users.each do |user| %>
 
-<%= link_to 'Show Articles', articles_path %> | <%= link_to 'About', pages_about_path %>
+	<% if user.email != current_user.email %>
+		<li>
+		  	<%= user.email %><br/>
+		 	
+		</li>
+	<% end %>
+<% end %>
+</ul>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete,  class: "btn btn-primary btn-lg btn_custom"%>
+</div>
