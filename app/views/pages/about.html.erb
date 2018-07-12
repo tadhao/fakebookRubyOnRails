@@ -1,3 +1,50 @@
 <h1>This is about page</h1>
 
+# Total freinds on this Website
+
+<ul>
+	<% @users = User.all %>
+	<% for user in @users %>
+		<% unless user.email == current_user.email || current_user.friends.include?(user.id) %>
+			<li>
+			<%= user.email %> | 
+			<% if current_user.pending_friends.include?(user.id) %>
+				sent
+			<% else %>
+				<%= link_to "Add Friend", friendships_path(friend_id: user), method: :post %>
+			<% end %>
+			</li>
+		<% end %>
+	
+	<% end %>
+</ul>
+
+<p>#Displaying friendship requested</p>
+<ul>
+<% @users = User.all %>
+<% for user in @users %>
+	<% if current_user.friend_requests.include?(user.id) && !current_user.friends.include?(user.id) %>
+		<li>
+		<% use_me=Friendship.find_by(user_id: user.id,friend_id: current_user.id)%>
+				<%= user.email %>  |
+				<%= link_to "Accept",  friendship_path(id: use_me), method: "put" %>
+		    <%= link_to "Decline", friendship_path(id: use_me), method: :delete %>
+		</li>	
+	<% end %>
+<% end %>
+</ul>
+
+<p>#Your frnd</p>
+<ul>
+<% @users = User.all %>
+<% for user in @users %>
+	<% if current_user.friends.include?(user.id) %>
+		<li>
+				<%= user.email %>
+		</li>
+	<% end %>
+<% end %>
+</ul>
+
+
 <%= link_to 'Home', root_path %>
